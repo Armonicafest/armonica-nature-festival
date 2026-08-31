@@ -1,0 +1,17 @@
+# Credenziali locali
+.env
+.env.local
+.envlocal
+.env.*
+!.env.example
+
+# File di sistema e strumenti
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Log e anteprime locali
+*.log
+.lighthouseci/
