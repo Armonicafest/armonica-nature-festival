@@ -266,7 +266,7 @@ a {
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(24rem, 0.92fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(22rem, 0.72fr);
   min-height: min(58rem, 100svh);
   padding: clamp(8rem, 13vh, 10rem) var(--page-pad) clamp(5.5rem, 10vh, 7rem);
   background:
@@ -350,54 +350,30 @@ a {
   z-index: 1;
   align-self: center;
   justify-self: center;
-  width: min(49vw, 47rem);
-  margin: 2rem -3vw 0 -3rem;
+  width: min(38vw, 35rem);
+  margin: 1rem 0 0 clamp(-3rem, -2vw, -1rem);
+  aspect-ratio: 1;
 }
 
 .hero__art::before {
   content: "";
   position: absolute;
   z-index: -1;
-  top: -12%;
-  right: 3%;
-  width: 79%;
+  inset: -6%;
   aspect-ratio: 1;
-  border-radius: 50% 45% 52% 48%;
-  background: var(--lime);
-  transform: rotate(-9deg);
+  border: clamp(1.4rem, 3vw, 2.6rem) solid color-mix(in oklch, var(--lime) 68%, var(--paper));
+  border-radius: 50%;
+  opacity: 0.55;
 }
 
 .hero__art img {
   width: 100%;
-  filter: drop-shadow(0 1.5rem 1.4rem color-mix(in oklch, var(--ink) 18%, transparent));
-}
-
-.hero__art figcaption {
-  position: absolute;
-  right: 8%;
-  bottom: -2.25rem;
-  max-width: 17rem;
-  color: var(--ink-soft);
-  font-size: 0.86rem;
-  line-height: 1.3;
-  text-align: right;
-}
-
-.hero__orbit {
-  position: absolute;
-  z-index: -2;
-  border: 1px solid color-mix(in oklch, var(--green-dark) 52%, transparent);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
   border-radius: 50%;
-}
-
-.hero__orbit--one {
-  inset: -22% -1% 4% 8%;
-  transform: rotate(11deg);
-}
-
-.hero__orbit--two {
-  inset: -11% 8% 10% -2%;
-  transform: rotate(-14deg);
+  filter: drop-shadow(0 1.35rem 1.5rem color-mix(in oklch, var(--ink) 14%, transparent));
+  mix-blend-mode: multiply;
 }
 
 .hero__scroll {
@@ -506,6 +482,26 @@ a {
   position: sticky;
   top: 7rem;
   align-self: start;
+}
+
+.snail-symbol {
+  display: block;
+  width: auto;
+  height: auto;
+  aspect-ratio: 955 / 550;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  user-select: none;
+}
+
+.snail-symbol--journey {
+  position: absolute;
+  z-index: 2;
+  top: -2.25rem;
+  right: -0.5rem;
+  width: clamp(6rem, 9vw, 9rem);
+  transform: rotate(7deg);
 }
 
 .journey__visual svg {
@@ -817,6 +813,7 @@ a {
 }
 
 .families__snail {
+  position: relative;
   display: grid;
   place-items: center;
   min-height: 28rem;
@@ -826,17 +823,9 @@ a {
   transform: rotate(-2deg);
 }
 
-.families__snail svg {
-  transform: rotate(2deg);
-}
-
-.families__snail path,
-.families__snail circle {
-  fill: none;
-  stroke: var(--green);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 8;
+.snail-symbol--families {
+  width: min(82%, 18rem);
+  transform: rotate(-3deg);
 }
 
 .families h2 {
@@ -1350,6 +1339,7 @@ a {
 }
 
 .finale {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1357,8 +1347,10 @@ a {
   text-align: center;
 }
 
-.finale img {
+.snail-symbol--finale {
+  width: clamp(7.5rem, 12vw, 11rem);
   margin-bottom: 2rem;
+  transform: rotate(5deg);
 }
 
 .finale h2 {
@@ -2101,13 +2093,8 @@ a {
 
   .hero__art {
     order: 2;
-    width: 110%;
-    margin: 4.5rem -13% 2rem 3%;
-  }
-
-  .hero__art figcaption {
-    right: 4%;
-    bottom: -1.7rem;
+    width: min(82vw, 28rem);
+    margin: 3.5rem auto 1rem;
   }
 
   .hero__scroll {
@@ -2146,6 +2133,12 @@ a {
   .journey__visual {
     position: relative;
     top: auto;
+  }
+
+  .snail-symbol--journey {
+    top: -1.25rem;
+    right: 0;
+    width: clamp(5.5rem, 23vw, 7.5rem);
   }
 
   .ring-item {
